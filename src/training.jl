@@ -17,7 +17,6 @@ image = Gray.(FileIO.load(picturePath))
 
 resizedImage = ImageTransformations.imresize(image,(64,64),method=ImageTransformations.Linear())
 
-FileIO.save("./test.png",resizedImage)
 pixels = convert.(Float64,resizedImage)
 
 network = newNetwork([64*64,100,100,10])
