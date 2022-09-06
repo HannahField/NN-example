@@ -5,6 +5,8 @@ include("cost.jl")
 using Images
 using FileIO
 
+#TRAINING DATA IS THE NIST SPECIAL DATABASE 19. (https://www.nist.gov/srd/nist-special-database-19). DOWNLOAD THE BY_FIELD.ZIP ONE. WE WILL ONLY USE THE DIGITS IN THIS PROJECT,
+# BUT YOU CAN EASILY EXPAND TO BE UPPER AND LOWER CASE LETTERS TOO.
 
 basePath = "./Data/T0/"
 digit = rand(30:39)
