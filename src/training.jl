@@ -1,6 +1,7 @@
 include("utils.jl")
 include("layer.jl")
 include("network.jl")
+include("cost.jl")
 using Images
 using FileIO
 
@@ -12,7 +13,7 @@ digits = readdir(currentPath)
 
 chosenPicture = rand(digits)
 picturePath = string(currentPath,chosenPicture)
-
+digit -= 30
 image = Gray.(FileIO.load(picturePath))
 
 resizedImage = ImageTransformations.imresize(image,(64,64),method=ImageTransformations.Linear())
@@ -22,5 +23,8 @@ pixels = convert.(Float64,resizedImage)
 network = newNetwork([64*64,100,100,10])
 
 pixels = reshape(pixels, (64*64))
-dump(chosenPicture)
-dump(evaluate(network,pixels))
+evaluation = evaluate(network,pixels)
+evaluation ./= sum(evaluation)
+
+cost = squareCost(evaluation,digit)
+dump(cost)

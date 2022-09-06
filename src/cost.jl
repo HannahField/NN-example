@@ -1,0 +1,1 @@
+squareCost(evaluation,digit) = (1-evaluation[digit+1])^2
