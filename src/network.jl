@@ -17,7 +17,7 @@ newNetwork(size::Vector{Int64}) = foldl(
         init=nothing
 )
 
-evaluate(layer::Layer, input::Vector{Float64}) = activation.(acc.weights * evaluate(layer.previous,input) + acc.biases)
+evaluate(layer::Layer, input::Vector{Float64}) = activation.(layer.weights * evaluate(layer.previous,input) + layer.biases)
 
 evaluate(layer::Nothing, input::Vector{Float64}) = input
 
