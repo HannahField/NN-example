@@ -1,1 +1,1 @@
-squareCost(evaluation,digit) = (1-evaluation[digit+1])^2
+squareCost(evaluation,expectedOutput) = sum((evaluation.-expectedOutput).^2)

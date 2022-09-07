@@ -28,5 +28,10 @@ pixels = reshape(pixels, (64*64))
 evaluation = evaluate(network,pixels)
 evaluation ./= sum(evaluation)
 
-cost = squareCost(evaluation,digit)
+expectedOutput = zeros(10)
+expectedOutput[digit] = 1
+
+cost = squareCost(evaluation,expectedOutput)
+
 dump(cost)
+
