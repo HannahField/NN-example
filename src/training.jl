@@ -34,3 +34,4 @@ expectedOutput[digit] = 1
 cost = squareCost(evaluation,expectedOutput)
 
 dC_dAend(output,expected) = 2 .* output .- expected
+
